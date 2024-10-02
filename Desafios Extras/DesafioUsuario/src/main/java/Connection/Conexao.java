@@ -8,7 +8,7 @@ public class Conexao {
 
     private static final String url = "jdbc:mysql://localhost:3306/desafioUsuario";
     private static final String user = "root";
-    private static final String password = "pedro123";
+    private static final String password = "";
 
     public static Connection conn;
 
