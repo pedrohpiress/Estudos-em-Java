@@ -49,11 +49,20 @@ public class Turma {
     }
 
     public void adicionarAluno(Aluno aluno) {
-        alunos.add(aluno);
+        if (!alunos.contains(aluno)) { // Evita duplicação
+            alunos.add(aluno);
+            if (!aluno.getTurmas().contains(this)) { // Verifica se a turma já está associada ao aluno
+                aluno.adicionarTurma(this);
+            }
+        }
     }
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    public int getIdTurma() {
+        return idTurma;
     }
 }
 

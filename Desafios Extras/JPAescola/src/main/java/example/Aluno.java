@@ -39,7 +39,9 @@ public class Aluno {
     }
 
     public void adicionarTurma(Turma turma) {
-        turmas.add(turma);
-        turma.adicionarAluno(this);
+        if (!turmas.contains(turma)) { // Evita duplicação
+            turmas.add(turma);
+            turma.adicionarAluno(this); // Adiciona o aluno à turma
+        }
     }
 }

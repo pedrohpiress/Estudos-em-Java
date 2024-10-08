@@ -16,11 +16,20 @@ public class TurmaDAO {
 
     public List<Turma> listarTurmas() {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<Turma> query = em.createQuery("SELECT t FROM Turma t", Turma.class);
-        List<Turma> turmas = query.getResultList();
-        em.close();
+        List<Turma> turmas = null;
+
+        try {
+            TypedQuery<Turma> query = em.createQuery("SELECT t FROM Turma t LEFT JOIN FETCH t.alunos", Turma.class);
+            turmas = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace(); // Adiciona um log para ver erros
+        } finally {
+            em.close();
+        }
+
         return turmas;
     }
+
 
     public Turma buscarTurma(String nomeTurma) {
         EntityManager em = emf.createEntityManager();

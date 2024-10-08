@@ -29,6 +29,7 @@ public class JPAutil {
         }
     }
 
+
     public void insertAluno(Aluno aluno) {
         EntityManager em = null;
         try {
@@ -48,41 +49,60 @@ public class JPAutil {
         }
     }
 
-    public List<Professor> selectProfessores() {
+    public Professor buscarProfessorComTurmasPorId(int id) {
         EntityManager em = emf.createEntityManager();
-        List<Professor> professores = null;
-
+        Professor professor = null;
         try {
-            TypedQuery<Professor> query = em.createQuery("SELECT p FROM Professor p", Professor.class);
-            professores = query.getResultList();
-        } catch (Exception e) {
-            e.printStackTrace(); // Adiciona um log para ver erros
+            professor = em.find(Professor.class, id);
+            if (professor != null) {
+                // Forçar o carregamento das turmas
+                professor.getTurmas().size();
+            }
         } finally {
             em.close();
         }
-
-        return professores;
+        return professor;
     }
 
-    public List<Aluno> selectAlunos() {
+    public Professor buscarProfessorPorId(int id) {
         EntityManager em = emf.createEntityManager();
-        List<Aluno> alunos = null;
-
+        Professor professor = null;
         try {
-            TypedQuery<Aluno> query = em.createQuery("SELECT a FROM Aluno a LEFT JOIN FETCH a.turmas", Aluno.class);
-            alunos = query.getResultList();
+            professor = em.find(Professor.class, id);
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Log de erros
         } finally {
             em.close();
         }
-
-        return alunos;
+        return professor;
     }
+
+
+    public Aluno buscarAlunoPorId(int id) {
+        EntityManager em = emf.createEntityManager();
+        Aluno aluno = null;
+        try {
+            aluno = em.find(Aluno.class, id);
+        } catch (Exception e) {
+            e.printStackTrace(); // Log de erros
+        } finally {
+            em.close();
+        }
+        return aluno;
+    }
+
 
     public void close() {
         if (emf != null) {
             emf.close();
         }
+    }
+
+    public void atualizarTurma(Turma turma) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.merge(turma);
+        em.getTransaction().commit();
+        em.close();
     }
 }
