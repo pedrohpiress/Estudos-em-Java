@@ -1,4 +1,10 @@
 package example;
+import example.Classes.Aluno;
+import example.Classes.Professor;
+import example.Classes.Turma;
+import example.DAO.JPAutil;
+import example.DAO.TurmaDAO;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -47,7 +53,7 @@ public class Principal {
                     if (turmaSelecionada != null) {
                         aluno.adicionarTurma(turmaSelecionada);
                         jpautil.insertAluno(aluno);
-                        jpautil.atualizarTurma(turmaSelecionada); // Atualiza a turma para incluir o aluno
+                        jpautil.atualizarTurma(turmaSelecionada);
                         System.out.println("Aluno cadastrado na turma com sucesso!");
                     } else {
                         System.out.println("Turma não encontrada.");

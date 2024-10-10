@@ -3,9 +3,8 @@ package org.example;
 import DAO.UsuarioDAO;
 import tabelas.Usuario;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Scanner;
-
 
 public class Principal {
     public static void main(String[] args) {
@@ -24,10 +23,6 @@ public class Principal {
 
             switch (opcao) {
                 case 1:
-
-                    System.out.print("Digite o ID do usuário: ");
-                    usuarioInsert.setIdUsuario(leitor.nextInt());
-                    leitor.nextLine();
                     System.out.print("Digite o nome: ");
                     usuarioInsert.setNome(leitor.nextLine());
                     System.out.print("Digite o CPF: ");
@@ -38,11 +33,11 @@ public class Principal {
                     usuarioInsert.setEmail(leitor.nextLine());
                     System.out.print("Digite a data de nascimento (YYYY-MM-DD): ");
                     String dataNascStr = leitor.nextLine();
-                    usuarioInsert.setDtNasc(Date.valueOf(dataNascStr));
+                    usuarioInsert.setDtNasc(LocalDate.parse(dataNascStr));
                     usuarioDao.insertUsuario(usuarioInsert);
                     break;
                 case 2:
-                    usuarioDao.selectUsuario(usuarioInsert);
+                    usuarioDao.selectUsuario();
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -54,5 +49,4 @@ public class Principal {
 
         leitor.close();
     }
-
 }

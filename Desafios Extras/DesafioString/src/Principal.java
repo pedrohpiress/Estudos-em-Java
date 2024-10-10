@@ -11,7 +11,6 @@ public class Principal {
         String trocada = op.trocarLetras(palavra);
         System.out.println("Palavra transcrita: " + op.trocarLetras(trocada));
 
-
         leitor.close();
     }
 }

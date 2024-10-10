@@ -1,4 +1,4 @@
-package example;
+package example.Classes;
 
 import javax.persistence.*;
 

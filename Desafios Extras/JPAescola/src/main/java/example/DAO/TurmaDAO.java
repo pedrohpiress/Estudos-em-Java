@@ -1,4 +1,6 @@
-package example;
+package example.DAO;
+
+import example.Classes.Turma;
 
 import javax.persistence.*;
 import java.util.List;

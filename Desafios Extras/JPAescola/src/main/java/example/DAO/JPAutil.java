@@ -1,7 +1,10 @@
-package example;
+package example.DAO;
+
+import example.Classes.Aluno;
+import example.Classes.Professor;
+import example.Classes.Turma;
 
 import javax.persistence.*;
-import java.util.List;
 
 public class JPAutil {
     private EntityManagerFactory emf;
