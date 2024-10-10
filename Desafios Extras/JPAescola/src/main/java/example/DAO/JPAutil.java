@@ -55,47 +55,12 @@ public class JPAutil {
         try {
             professor = em.find(Professor.class, id);
             if (professor != null) {
-                // Forçar o carregamento das turmas
                 professor.getTurmas().size();
             }
         } finally {
             em.close();
         }
         return professor;
-    }
-
-    public Professor buscarProfessorPorId(int id) {
-        EntityManager em = emf.createEntityManager();
-        Professor professor = null;
-        try {
-            professor = em.find(Professor.class, id);
-        } catch (Exception e) {
-            e.printStackTrace(); // Log de erros
-        } finally {
-            em.close();
-        }
-        return professor;
-    }
-
-
-    public Aluno buscarAlunoPorId(int id) {
-        EntityManager em = emf.createEntityManager();
-        Aluno aluno = null;
-        try {
-            aluno = em.find(Aluno.class, id);
-        } catch (Exception e) {
-            e.printStackTrace(); // Log de erros
-        } finally {
-            em.close();
-        }
-        return aluno;
-    }
-
-
-    public void close() {
-        if (emf != null) {
-            emf.close();
-        }
     }
 
     public void atualizarTurma(Turma turma) {
