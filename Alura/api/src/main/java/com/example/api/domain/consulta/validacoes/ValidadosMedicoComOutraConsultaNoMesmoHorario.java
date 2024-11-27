@@ -1,4 +1,21 @@
 package com.example.api.domain.consulta.validacoes;
 
-public class ValidadosMedicoComOutraConsultaNoMesmoHorario {
+import com.example.api.domain.ValidacaoException;
+import com.example.api.domain.consulta.ConsultaRepository;
+import com.example.api.domain.consulta.DadosAgendamentoConsulta;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ValidadosMedicoComOutraConsultaNoMesmoHorario implements ValidadorAgendamentoDeConsulta {
+    @Autowired
+    private ConsultaRepository consultaRepository;
+
+    public void validar(DadosAgendamentoConsulta dados) {
+        var medicoPossuiOutraConsultaNoMesmoHorario = consultaRepository.existsByMedicoIdAndData(dados.idMedico(), dados.data());
+        if (!medicoPossuiOutraConsultaNoMesmoHorario){
+            throw new ValidacaoException("Um médico ja possui uma consulta para este horário");
+        }
+    }
+
 }

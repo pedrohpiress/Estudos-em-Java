@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Calculadora;
 
 import javax.swing.*;
 import java.math.BigInteger;
