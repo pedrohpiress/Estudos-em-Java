@@ -100,14 +100,15 @@ public class PedidoService {
                     .sum());
             pedido.setFornecedor("Beta");
 
-            pedidoRepository.save(pedido);
+            Pedido pedidoComId = pedidoRepository.save(pedido);
+            return new PedidoDTO(pedidoComId.getId(), pedido.getCliente(), dadosProdutos);
         } catch (ProdutoNaoEncontradoException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto não encontrado no estoque", e);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao criar pedido", e);
         }
 
-        return new PedidoDTO(pedido.getId(), pedido.getCliente(), dadosProdutos);
+
     }
 
 

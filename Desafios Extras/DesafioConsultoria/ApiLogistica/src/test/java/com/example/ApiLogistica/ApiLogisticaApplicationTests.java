@@ -40,50 +40,42 @@ class ApiLogisticaApplicationTests {
 		Pedido pedido = new Pedido();
 		pedido.setCliente("Cliente Teste");
 
-		pedidoService.criarPedidoBeta(pedido)
+		pedidoService.criarPedidoBeta(pedido);
 
 		verify(pedidoRepository).save(Mockito.any(Pedido.class));
 	}
 
 	@Test
 	void testCriarPedidoBeta_ComNomeVazio() {
-		// Preparando o pedido com nome vazio
 		Pedido pedido = new Pedido();
 		pedido.setCliente("");
 		pedido.setProdutos(new ArrayList<>());
 
-		PedidoService pedidoService = new PedidoService(); // Não estamos usando o repositório aqui
+		PedidoService pedidoService = new PedidoService();
 
-		// Chamando o método
 		PedidoDTO resultado = pedidoService.criarPedidoBeta(pedido);
 
-		// Testando se o nome vazio é tratado corretamente
 		assertEquals("", resultado.getCliente(), "O nome do cliente deve ser vazio");
 	}
 
 	@Test
 	void testCriarPedidoBeta_ComPrecoZero() {
-		// Criando pedido com um produto com preço 0
 		Pedido pedido = new Pedido();
 		pedido.setCliente("Cliente Teste");
 
 		ItemPedido itemPedido = new ItemPedido();
 		itemPedido.setNomeProduto("Produto Teste");
-		itemPedido.setQtdUnidades(0);  // Quantidade zero
+		itemPedido.setQtdUnidades(0);
 
 		List<ItemPedido> itensPedido = new ArrayList<>();
 		itensPedido.add(itemPedido);
 		pedido.setProdutos(itensPedido);
 
-		PedidoService pedidoService = new PedidoService(); // Sem repositório, simplificado
+		PedidoService pedidoService = new PedidoService();
 
-		// Simulando o retorno da API de estoque
 		DadosProduto dadosProdutoMock = new DadosProduto("Produto Teste", 10.0, "Categoria", 0L);
 
-		// Chamando o método
 		PedidoDTO resultado = pedidoService.criarPedidoBeta(pedido);
-
-		// Verificando se o preço total é zero, pois não há unidades
 		assertEquals(0.0, resultado.getPrecoTotal(), 0.01, "O preço total deve ser zero");
 	}
 }

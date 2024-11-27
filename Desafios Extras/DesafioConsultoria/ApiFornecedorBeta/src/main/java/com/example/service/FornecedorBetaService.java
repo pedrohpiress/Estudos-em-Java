@@ -39,7 +39,7 @@ public class FornecedorBetaService {
         fornecedorBetaRepository.delete(produto);
     }
 
-    public FornecedorBetaDTO retirarProdutoFornecedorAlfa(String nome, Long qtd){
+    public FornecedorBetaDTO retirarProdutoFornecedorBeta(String nome, Long qtd){
         FornecedorBeta produto = buscarPorNomeFornecedorBeta(nome);
 
         if(produto.getQtdUnidades() < qtd){
