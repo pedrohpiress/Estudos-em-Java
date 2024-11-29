@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cf552eed-e8e4-4eb8-9b05-8578aaae5263" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/DesafioBuscador.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/src/ConsultaCep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/src/Endereco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/src/GeradorDeArquivo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/DesafioBuscador/src/Principal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/screenmatch/src/br/com/alura/screenmatch/excecao/ErroDeConversaoDeAnoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/screenmatch/src/br/com/alura/screenmatch/modelos/TituloOMDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alura/screenmatch/src/br/com/alura/screenmatch/principal/PrincipalComBusca.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesafioEscola.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alura/screenmatch/screenmatch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Alura/screenmatch/screenmatch.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alura/screenmatch/src/br/com/alura/screenmatch/modelos/Titulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Alura/screenmatch/src/br/com/alura/screenmatch/modelos/Titulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DesafioString/src/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesafioString/src/Principal.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2mCwunBfctXtrxrlHp5Mi8jTomq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/LowCost/Documents/Estudos-em-Java/Desafios Extras/DesafioMatematica",
+    "onboarding.tips.debug.path": "C:/Users/LowCost/Documents/Estudos-em-Java/Desafios Extras/DesafioEscola/src/Main.java"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf552eed-e8e4-4eb8-9b05-8578aaae5263" name="Changes" comment="" />
+      <created>1726594093212</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1726594093212</updated>
+    </task>
+    <servers />
+  </component>
+</project>

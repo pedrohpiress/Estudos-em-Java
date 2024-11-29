@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ea65749e-71ee-4924-8152-963be999cef3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/DesafioBuscador.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/src/ConsultaCep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/src/Endereco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/src/GeradorDeArquivo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesafioBuscador/src/Principal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../screenmatch/src/br/com/alura/screenmatch/excecao/ErroDeConversaoDeAnoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../screenmatch/src/br/com/alura/screenmatch/modelos/TituloOMDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../screenmatch/src/br/com/alura/screenmatch/principal/PrincipalComBusca.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Desafios Extras/DesafioEscola/DesafioEscola.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../screenmatch/screenmatch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../screenmatch/screenmatch.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../screenmatch/src/br/com/alura/screenmatch/modelos/Titulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../screenmatch/src/br/com/alura/screenmatch/modelos/Titulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desafios Extras/DesafioString/src/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desafios Extras/DesafioString/src/Principal.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2mcMJjPIn2mkCV7M2ZawA2HfuNa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "C:/Users/LowCost/Documents/Estudos-em-Java/Alura/comecando-spring/src/Main.java"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ea65749e-71ee-4924-8152-963be999cef3" name="Changes" comment="" />
+      <created>1727371343050</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727371343050</updated>
+    </task>
+    <servers />
+  </component>
+</project>
