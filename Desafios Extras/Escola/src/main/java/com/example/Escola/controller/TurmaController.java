@@ -3,8 +3,7 @@ package com.example.Escola.controller;
 import com.example.Escola.Class.Aluno;
 import com.example.Escola.Class.Professor;
 import com.example.Escola.Class.Turma;
-import com.example.Escola.repository.AlunoRepository;
-import com.example.Escola.repository.ProfessorRepository;
+import com.example.Escola.dto.TurmaDTO;
 import com.example.Escola.repository.TurmaRepository;
 import com.example.Escola.service.EscolaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,66 +13,100 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/escola")
-public class EscolaController {
+@RequestMapping("/turmas")
+public class TurmaController {
 
     @Autowired
     private EscolaService service;
 
-    @GetMapping("/teste")
-    public String teste() {
-        return "Ta no ar";
+    @Autowired
+    private TurmaRepository turmaRepository;
+
+    @GetMapping
+    public ResponseEntity<List<Turma>> obterTurmas() {
+        List<Turma> turmas = service.obterTurma();
+        return ResponseEntity.ok(turmas);
     }
 
-//    @GetMapping("/professores")
-//    public List<Professor> obterTodosProfessores(){
-//        return service.obterProfessores();
-//    }
-//
-//    @GetMapping("/alunos")
-//    public List<Aluno> obterTodosAlunos(){
-//        return service.obterAlunos();
-//    }
-//
-//    @GetMapping("/turmas")
-//    public List<Turma> obterTodaTurma(){
-//        return service.obterTurma();
-//    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarTurma(@PathVariable Integer id) {
+        List<Turma> turmaOpt = service.obterTurma();
 
-    @PostMapping("/alunos")
-    public ResponseEntity<Aluno> adicionarAluno(@RequestBody Aluno aluno) {
-        Aluno novoAluno = service.adicionarAluno(aluno);
-        return ResponseEntity.ok(novoAluno);
+        if (!turmaOpt.isEmpty()) {
+            service.deletarTurma(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @PostMapping("/professores")
-    public ResponseEntity<Professor> adicionarProfessor(@RequestBody Professor professor) {
-        Professor novoProfessor = service.adicionarProfessor(professor);
-        return ResponseEntity.ok(novoProfessor);
-    }
-
-    @PostMapping("/turmas")
-    public ResponseEntity<Turma> adicionarTurma(@RequestBody Turma turma,
-                                                @RequestParam Integer professorId,
-                                                @RequestParam List<Integer> alunoIds) {
-        // Verifica se o professor existe
+    @PostMapping
+    public ResponseEntity<Turma> adicionarTurma(@RequestBody TurmaDTO turmaDTO) {
+        Turma turma = new Turma();
         Professor professor = service.obterProfessores().stream()
-                .filter(p -> Objects.equals(p.getIdProfessor(), professorId))
+                .filter(p -> Objects.equals(p.getIdProfessor(), turmaDTO.getProfessorId()))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Professor não encontrado"));
 
-        // Verifica se os alunos existem
-        List<Aluno> alunos = alunoIds.stream()
+        List<Aluno> alunos = turmaDTO.getAlunoIds().stream()
                 .map(id -> service.obterAlunos().stream()
                         .filter(a -> Objects.equals(a.getIdAluno(), id))
                         .findFirst()
                         .orElseThrow(() -> new RuntimeException("Aluno não encontrado")))
-                .toList();
+                .collect(Collectors.toList());
 
-        // Adiciona a turma
+        turma.setNomeTurma(turmaDTO.getNomeTurma());
+        turma.setProfessor(professor);
+        turma.getAlunos().addAll(alunos);
+
         Turma novaTurma = service.adicionarTurma(turma, professor, alunos);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novaTurma);
+        return ResponseEntity.ok(novaTurma);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Turma> atualizarTurma(@PathVariable Integer id, @RequestBody TurmaDTO turmaDTO) {
+        Optional<Turma> turmaOpt = service.obterTurmaPorId(id);
+
+        if (turmaOpt.isPresent()) {
+            Turma turma = turmaOpt.get();
+            turma.setNomeTurma(turmaDTO.getNomeTurma());
+            Professor professor = null;
+            if (turmaDTO.getProfessorId() != null) {
+                professor = service.obterProfessores().stream()
+                        .filter(p -> Objects.equals(p.getIdProfessor(), turmaDTO.getProfessorId()))
+                        .findFirst()
+                        .orElse(null);
+                turma.setProfessor(professor);
+            }
+
+            List<Aluno> alunos = null;
+            if (turmaDTO.getAlunoIds() != null && !turmaDTO.getAlunoIds().isEmpty()) {
+                alunos = turmaDTO.getAlunoIds().stream()
+                        .map(idAluno -> service.obterAlunos().stream()
+                                .filter(aluno -> Objects.equals(aluno.getIdAluno(), idAluno))
+                                .findFirst()
+                                .orElse(null))
+                        .collect(Collectors.toList());
+                turma.setAlunos(alunos);
+            }
+
+            Turma turmaAtualizada = service.adicionarOuAtualizarTurma(turma, professor, alunos);
+
+            return ResponseEntity.ok(turmaAtualizada);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/remover-aluno/{alunoId}")
+    public ResponseEntity<Void> removerAlunoDasTurmas(@PathVariable Integer alunoId) {
+        turmaRepository.removerAlunoDasTurmas(alunoId);
+        return ResponseEntity.noContent().build();
+    }
+
+
 }
